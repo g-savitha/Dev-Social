@@ -1,0 +1,19 @@
+{
+  "name": "dev-social-be",
+  "version": "1.0.0",
+  "description": "Social Media for Devs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "keywords": [
+    "nodejs",
+    "javascript"
+  ],
+  "author": "Savitha Gollamudi",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
