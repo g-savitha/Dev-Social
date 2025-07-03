@@ -1,16 +1,22 @@
 const express = require('express');
-const { adminAuth, userAuth } = require("./middleware/auth")
 const app = express();
 
 
-app.use("/admin", adminAuth);
-app.post("/user/login", (req, res) => {
-  res.send("user logged in succesfully")
-
-})
-app.get("/user/data", userAuth, (req, res) => {
-  res.send("User data sent")
+app.get("/user/data", (req, res) => {
+  try {
+    throw new Error("Dummy Error");
+    res.send("User data sent")
+  }
+  catch (err) {
+    res.status(500).send("Internal Server Error")
+  }
 });
+
+app.use("/", (err, req, res, next) => {
+  if (err) {
+    res.status(500).send("Something went wrong")
+  }
+})
 
 
 app.listen(7777, () => {
